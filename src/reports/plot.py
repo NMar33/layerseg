@@ -28,15 +28,20 @@ def plot_imgs_with_mask(img, masks, labels, dpi, fig_sz, suptitle=None, show_img
     ax[0].set_title(labels[0])
 
   for i in range(len(masks)):
-    if img_cmap == "rgb" and len(img.shape) == 3:
-      ax[i + show_img].imshow(img, interpolation=interpolation)
-    else:
-      img_cmap = "gray" if img_cmap == "rgb" else img_cmap
-      ax[i + show_img].imshow(img, cmap=img_cmap, interpolation=interpolation)
+    # Manual alpha compositing: blend original image with colormap overlay
+    # This avoids matplotlib's two-layer imshow compositing issues
+    img_float = img.astype(np.float64) / 255.0 if img.dtype == np.uint8 else img.astype(np.float64)
+    if img_float.ndim == 2:
+      img_float = np.stack([img_float] * 3, axis=-1)
 
-    alpha = masks[i] * 0.5
-    mask_cmap = masks_cmap[i] if len(masks_cmap) > i else masks_cmap[-1]
-    ax[i + show_img].imshow(np.zeros_like(masks[i]), cmap=mask_cmap, alpha=alpha, interpolation=interpolation)
+    mask_cmap_name = masks_cmap[i] if len(masks_cmap) > i else masks_cmap[-1]
+    cmap = plt.get_cmap(mask_cmap_name)
+    overlay_rgb = cmap(np.zeros_like(masks[i]))[:, :, :3]
+    alpha_mask = (masks[i] * 0.5)[:, :, np.newaxis]
+    blended = img_float * (1 - alpha_mask) + overlay_rgb * alpha_mask
+    blended = np.clip(blended, 0, 1)
+
+    ax[i + show_img].imshow(blended, interpolation=interpolation)
     ax[i + show_img].set_title(labels[i + 1])
 
   st = fig.suptitle(suptitle, fontsize=16)
