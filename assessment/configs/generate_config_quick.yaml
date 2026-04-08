@@ -1,0 +1,28 @@
+output_dir: "assessment/output/synthetic_imgs"
+ground_truth_dir: "assessment/output/ground_truth"
+metadata_path: "assessment/output/synthetic_imgs/generation_metadata.json"
+seed: 42
+
+# Quick mode: only 128 and 256, no 512
+default_sizes: [[128, 128], [256, 256]]
+
+# Override sizes_hint to max 256 (ignore 512 in variations)
+max_size: 256
+
+defaults:
+  salt_pepper_density: 0.02
+  background_gray: 128
+  line_intensity: 0
+  line_thickness: 2
+
+categories:
+  wavy_lines:
+    enabled: true
+  straight_lines:
+    enabled: true
+  checkerboard:
+    enabled: true
+  circles_ellipses:
+    enabled: true
+  composite:
+    enabled: true

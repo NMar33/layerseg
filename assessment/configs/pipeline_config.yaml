@@ -1,0 +1,42 @@
+project_root: "."
+input_dir: "assessment/output/synthetic_imgs"
+output_dir: "assessment/output/pipeline_results"
+metadata_path: "assessment/output/pipeline_results/pipeline_metadata.json"
+
+model_name: "unet_220805.pth"
+path_models_dir: "pretrained_models"
+device: "cpu"
+input_mode: "grayscale"
+preprocessing: "smart_contrast"
+postprocessing: "sigmoid_diff"
+n_channels: 3
+n_classes: 2
+cache: true
+cache_dir: "cache"
+
+logging_config: "default"
+
+# Scale factors applied by pipeline based on image size.
+# Key: max dimension threshold. Images <= this size get these scale_factors.
+# Processed in order; first match wins.
+size_based_scales:
+  256: [1.5, 2, 2.5]    # small images: upscale
+  512: [1]               # medium: as-is
+  99999: [0.5]           # large (1024+): downscale
+
+# Thresholds to test - include 0.5 and 0.7 for the report
+binarizer_thresholds: [0.5, 0.6, 0.65, 0.7, 0.75, 0.8]
+
+# Pipeline presets: each preset produces separate results
+presets:
+  no_blur:
+    gaussian_blur: false
+    gaussian_blur_kernel_size: 5
+
+  with_blur_k5:
+    gaussian_blur: true
+    gaussian_blur_kernel_size: 5
+
+  with_blur_k7:
+    gaussian_blur: true
+    gaussian_blur_kernel_size: 7

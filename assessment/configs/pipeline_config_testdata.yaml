@@ -1,0 +1,30 @@
+project_root: "."
+input_dir: "assessment/output/test_dataset_imgs"
+output_dir: "assessment/output/test_dataset_results"
+metadata_path: "assessment/output/test_dataset_results/pipeline_metadata.json"
+
+model_name: "unet_220805.pth"
+path_models_dir: "pretrained_models"
+device: "cpu"
+input_mode: "grayscale"
+preprocessing: "smart_contrast"
+postprocessing: "sigmoid_diff"
+n_channels: 3
+n_classes: 2
+cache: true
+cache_dir: "cache"
+logging_config: "default"
+
+size_based_scales:
+  99999: [1]
+
+binarizer_thresholds: [0.5, 0.6, 0.65, 0.7, 0.75, 0.8]
+
+presets:
+  no_blur:
+    gaussian_blur: false
+    gaussian_blur_kernel_size: 5
+
+  with_blur_k5:
+    gaussian_blur: true
+    gaussian_blur_kernel_size: 5

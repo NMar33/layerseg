@@ -1,0 +1,12 @@
+.ph_bin_v00/*
+*__pycache__*
+pretrained_models/*
+reports/*
+cache/*
+assessment/output_old/*
+logs_old/*
+reports_old/*
+requirements_archive/*
+requirements_pinned_py312.txt
+00-git-dev/
+00-git-release/

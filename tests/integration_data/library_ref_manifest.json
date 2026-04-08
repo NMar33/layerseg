@@ -1,0 +1,39 @@
+{
+  "cv2_version": "4.7.0",
+  "torch_version": "1.13.0+cpu",
+  "numpy_version": "1.24.2",
+  "files": {
+    "cv2_gaussian_blur_ref.npy": {
+      "size": 192,
+      "md5": "409cdb7d85ccc645641cfba86ced911d"
+    },
+    "cv2_resize_float32_ref.npy": {
+      "size": 384,
+      "md5": "63402676c4841d1c1285286fcba466dd"
+    },
+    "cv2_resize_uint8_ref.npy": {
+      "size": 192,
+      "md5": "0c5384a231c5563b25e74a5ea3cfc1ec"
+    },
+    "fpad_ref.pt": {
+      "size": 814,
+      "md5": "fa99f598713e87588e4c8ee63d10f8b6"
+    },
+    "scale_factor_prep_ref.npy": {
+      "size": 528,
+      "md5": "95471b618fc09b26af98ffc43dd38238"
+    },
+    "seg_resize_ref.npy": {
+      "size": 384,
+      "md5": "be9829e398f1b7eb6f048cd3d087d062"
+    },
+    "sigmoid_post_ref.npy": {
+      "size": 152,
+      "md5": "bd1358d91314efa17c1adfbaa8761368"
+    },
+    "to_tensor_ref.pt": {
+      "size": 829,
+      "md5": "643a1c9f1bcdeaac85e4be42accc4e95"
+    }
+  }
+}

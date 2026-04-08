@@ -1,0 +1,68 @@
+{
+  "input_image": "real_crop.png",
+  "params": {
+    "scale_factors": [
+      1
+    ],
+    "gaussian_blur": false,
+    "thresholds": [
+      0.5,
+      0.7
+    ],
+    "color_interest": "black",
+    "report_dpi": 150,
+    "report_fig_sz": 4
+  },
+  "library_versions": {
+    "cv2": "4.7.0",
+    "torch": "1.13.0+cpu",
+    "numpy": "1.24.2",
+    "python": "3.8.1 (tags/v3.8.1:1b293b6, Dec 18 2019, 23:11:46) [MSC v.1916 64 bit (AMD64)]"
+  },
+  "structure": {
+    "report_dir_name": "golden_real_crop.png_08_12_53",
+    "files_in_report_dir": [
+      "01_preprocessed_imgs.png",
+      "021_scale_1_threshold_0.5.png",
+      "masks"
+    ],
+    "files_in_masks_dir": [
+      "real_crop.png;020_scale_1_soft_bin.png",
+      "real_crop.png;021_scale_1_threshold_0.5.png",
+      "real_crop.png;022_scale_1_threshold_0.7.png"
+    ],
+    "pdf_files": [
+      "golden_08_12_53.pdf"
+    ]
+  },
+  "golden_files": {
+    "report.pdf": {
+      "size": 228827,
+      "md5": "aeb5031da6527bdd804227034d43e799"
+    },
+    "soft_mask_float.npy": {
+      "size": 65664,
+      "md5": "e49c004000066740ac7d305db10bf472"
+    },
+    "soft_mask_uint8.png": {
+      "size": 10475,
+      "md5": "c1fb019defbb017f2a478f1e7ef63479"
+    },
+    "threshold_05.png": {
+      "size": 1361,
+      "md5": "8d44f69047e296b29cb5763a70c33336"
+    },
+    "threshold_07.png": {
+      "size": 593,
+      "md5": "b9f689fd15f993dd14770f4462cad3ec"
+    },
+    "viz_00_01_preprocessed_imgs.png": {
+      "size": 451226,
+      "md5": "dab098b108bd41a969e15fd366753066"
+    },
+    "viz_01_021_scale_1_threshold_0.5.png": {
+      "size": 446913,
+      "md5": "e2058d7e6722144c57d9fc8871c5222e"
+    }
+  }
+}

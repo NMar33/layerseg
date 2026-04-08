@@ -1,0 +1,27 @@
+output_dir: "assessment/output/synthetic_imgs"
+ground_truth_dir: "assessment/output/ground_truth"
+metadata_path: "assessment/output/synthetic_imgs/generation_metadata.json"
+seed: 42
+
+# Default sizes for most variations
+# Thin-line / high-freq variations override with sizes_hint in their params
+default_sizes: [[128, 128], [256, 256]]
+
+defaults:
+  salt_pepper_density: 0.02
+  background_gray: 128
+  line_intensity: 0
+  line_thickness: 2
+
+categories:
+  wavy_lines:
+    enabled: true
+  straight_lines:
+    enabled: true
+  checkerboard:
+    enabled: true
+  circles_ellipses:
+    enabled: true
+  composite:
+    enabled: true
+    sizes_override: [[128, 128], [256, 256], [512, 512]]

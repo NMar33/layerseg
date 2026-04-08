@@ -1,0 +1,46 @@
+# path to images for binarization
+path_imgs_dir: "data/original_imgs"
+path_report_dir: "reports/report"
+path_logging_config: "configs/logging_config.yaml"
+# pretrained model path
+path_models_dir: "pretrained_models"
+model_name: "unet_220805.pth"
+# if True, then cache will be used
+cache: True
+cache_dir: "cache"
+
+# Image loading mode: "grayscale" or "rgb"
+input_mode: "grayscale"
+# Preprocessing applied before model: "smart_contrast" creates 3-channel tensor from grayscale
+preprocessing: "smart_contrast"
+# Postprocessing applied to model output: "sigmoid_diff" computes sigmoid(ch0 - ch1)
+postprocessing: "sigmoid_diff"
+# Model architecture parameters
+n_channels: 3
+n_classes: 2
+
+# report name
+report_name: "report"
+# scale factors for preprocessing (>1 upscales, <1 downscales)
+scale_factors: [2, 1, 0.5]
+# if True, then gaussian blur will be performed
+gaussian_blur: False
+gaussian_blur_kernel_size: 5
+# thresholds for binarization (should be multiple of imgs_in_row)
+binarizer_thresholds: [0.6, 0.65, 0.675, 0.7, 0.715, 0.75, 0.8, 0.82, 0.9]
+# color of the original image
+original_img_color_map: "gray"
+# amount of images in row in report
+imgs_in_row: 3
+# color of interest: "white" or "black"
+color_interest: "black"
+
+# dpi of images in report
+report_dpi: 300
+# size of images in report
+report_fig_sz: 5
+report_short: True
+short_report_dir: "reports_short"
+
+# computing device: "cpu" or "cuda"
+device: "cpu"

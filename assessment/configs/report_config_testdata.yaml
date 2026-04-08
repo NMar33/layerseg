@@ -1,0 +1,8 @@
+pipeline_results_dir: "assessment/output/test_dataset_results"
+generation_metadata: "assessment/output/test_dataset_imgs/generation_metadata.json"
+pipeline_metadata: "assessment/output/test_dataset_results/pipeline_metadata.json"
+ground_truth_dir: "assessment/output/test_dataset_gt"
+output_dir: "assessment/output/test_dataset_reports"
+
+report_dpi: 150
+fig_size: 4
