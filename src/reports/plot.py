@@ -49,7 +49,7 @@ def plot_imgs_with_mask(img, masks, labels, dpi, fig_sz, suptitle=None, show_img
   else:
     plt.savefig(buf, format='png')
   buf.seek(0)
-  result_image = Image.open(buf)
+  result_image = Image.open(buf).convert("RGB")
   result_image = np.array(result_image)
   plt.close()
   buf.close()
@@ -81,7 +81,7 @@ def plot_imgs(imgs, labels, dpi, fig_sz, suptitle=None, img_cmaps=["gray"], inte
   else:
     plt.savefig(buf, format='png')
   buf.seek(0)
-  result_image = Image.open(buf)
+  result_image = Image.open(buf).convert("RGB")
   result_image = np.array(result_image)
   plt.close()
   buf.close()
